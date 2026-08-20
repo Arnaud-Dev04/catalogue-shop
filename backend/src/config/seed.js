@@ -48,31 +48,31 @@ async function seed() {
         name: 'Chaussures',
         slug: 'chaussures',
         description: 'Chaussures pour homme, femme et enfant.',
-        image_url: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80',
+        image_url: 'https://picsum.photos/seed/shoes/400/300',
       },
       {
         name: 'Vêtements',
         slug: 'vetements',
         description: 'Vêtements tendance pour toute la famille.',
-        image_url: 'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=400&q=80',
+        image_url: 'https://picsum.photos/seed/clothes/400/300',
       },
       {
         name: 'Accessoires',
         slug: 'accessoires',
         description: 'Sacs, ceintures et autres accessoires de mode.',
-        image_url: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&q=80',
+        image_url: 'https://picsum.photos/seed/bags/400/300',
       },
       {
         name: 'Électronique',
         slug: 'electronique',
         description: 'Téléphones, écouteurs et gadgets électroniques.',
-        image_url: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&q=80',
+        image_url: 'https://picsum.photos/seed/tech/400/300',
       },
       {
         name: 'Maison & Déco',
         slug: 'maison-deco',
         description: 'Objets décoratifs et articles pour la maison.',
-        image_url: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&q=80',
+        image_url: 'https://picsum.photos/seed/home/400/300',
       },
     ];
 
@@ -99,7 +99,7 @@ async function seed() {
         price: 85000,
         stock: 15,
         is_featured: true,
-        image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80',
+        image: 'https://picsum.photos/seed/sport-shoe/600/450',
       },
       {
         category: 'chaussures',
@@ -109,7 +109,7 @@ async function seed() {
         price: 120000,
         stock: 8,
         is_featured: false,
-        image: 'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=600&q=80',
+        image: 'https://picsum.photos/seed/mocassin/600/450',
       },
       {
         category: 'vetements',
@@ -119,7 +119,7 @@ async function seed() {
         price: 18000,
         stock: 45,
         is_featured: true,
-        image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80',
+        image: 'https://picsum.photos/seed/tshirt/600/450',
       },
       {
         category: 'vetements',
@@ -129,7 +129,7 @@ async function seed() {
         price: 65000,
         stock: 12,
         is_featured: false,
-        image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80',
+        image: 'https://picsum.photos/seed/jacket/600/450',
       },
       {
         category: 'vetements',
@@ -139,7 +139,7 @@ async function seed() {
         price: 42000,
         stock: 0,
         is_featured: false,
-        image: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600&q=80',
+        image: 'https://picsum.photos/seed/pants/600/450',
       },
       {
         category: 'accessoires',
@@ -149,7 +149,7 @@ async function seed() {
         price: 55000,
         stock: 20,
         is_featured: true,
-        image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80',
+        image: 'https://picsum.photos/seed/handbag/600/450',
       },
       {
         category: 'accessoires',
@@ -159,7 +159,7 @@ async function seed() {
         price: 22000,
         stock: 30,
         is_featured: false,
-        image: 'https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=600&q=80',
+        image: 'https://picsum.photos/seed/belt/600/450',
       },
       {
         category: 'electronique',
@@ -169,7 +169,7 @@ async function seed() {
         price: 95000,
         stock: 7,
         is_featured: true,
-        image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80',
+        image: 'https://picsum.photos/seed/earphones/600/450',
       },
       {
         category: 'electronique',
@@ -179,17 +179,17 @@ async function seed() {
         price: 28000,
         stock: 50,
         is_featured: false,
-        image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80',
+        image: 'https://picsum.photos/seed/charger/600/450',
       },
       {
         category: 'maison-deco',
         name: 'Lampe de Bureau LED',
         slug: 'lampe-bureau-led',
-        description: 'Lampe de bureau LED à intensité réglable. Design moderne, économie d\'énergie maximale.',
+        description: "Lampe de bureau LED à intensité réglable. Design moderne, économie d'énergie maximale.",
         price: 38000,
         stock: 18,
         is_featured: false,
-        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80',
+        image: 'https://picsum.photos/seed/lamp/600/450',
       },
     ];
 
