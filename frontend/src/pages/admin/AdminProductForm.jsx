@@ -92,7 +92,8 @@ function AdminProductForm() {
         ...formData,
         price: parseFloat(formData.price),
         stock: parseInt(formData.stock, 10),
-        category_id: formData.category_id ? parseInt(formData.category_id, 10) : null
+        category_id: formData.category_id ? parseInt(formData.category_id, 10) : null,
+        images: formData.image_url ? [{ url: formData.image_url }] : []
       };
 
       if (isEditing) {
