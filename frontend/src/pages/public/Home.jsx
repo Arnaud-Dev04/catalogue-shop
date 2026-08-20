@@ -54,7 +54,7 @@ function Home() {
             className="w-full h-full object-cover"
           />
           {/* Overlay sombre pour garder le texte lisible */}
-          <div className="absolute inset-0 bg-slate-900/75" />
+          <div className="absolute inset-0 bg-black/55" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full py-20">
@@ -65,7 +65,7 @@ function Home() {
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight text-white drop-shadow-lg">
               Des produits de<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-white">
                 qualité pour vous
               </span>
             </h1>

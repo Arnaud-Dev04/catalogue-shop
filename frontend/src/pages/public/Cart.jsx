@@ -51,7 +51,7 @@ function Cart() {
     }
 
     const body    = generateEmailBody(items, totalPrice, currency);
-    const subject = encodeURIComponent(`Nouvelle commande — ${settings.business_name || 'Catalogue'}`);
+    const subject = encodeURIComponent(`Nouvelle commande — ${settings.business_name || 'Clopofeco'}`);
     const mailBody = encodeURIComponent(body);
 
     // Enregistre la commande en base (optionnel, non bloquant)
