@@ -23,7 +23,7 @@ function Footer() {
                 <ShoppingBag className="w-4 h-4 text-white" />
               </div>
               <span className="font-bold text-white text-base">
-                {settings?.business_name || 'Mon Catalogue'}
+                {settings?.business_name || 'Clopofeco'}
               </span>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
@@ -105,7 +105,7 @@ function Footer() {
 
         {/* Bas du footer */}
         <div className="border-t border-slate-800 mt-10 pt-6 text-xs text-slate-500 text-center">
-          &copy; {year} {settings?.business_name || 'Mon Catalogue'}. Tous droits réservés.
+          &copy; {year} {settings?.business_name || 'Clopofeco'}. Tous droits réservés.
         </div>
       </div>
     </footer>

@@ -45,46 +45,51 @@ function Home() {
       <ToastContainer />
 
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
-        {/* Motif décoratif */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full -translate-y-1/2 translate-x-1/2" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-white rounded-full translate-y-1/2 -translate-x-1/2" />
+      <section className="relative text-white overflow-hidden flex items-center" style={{ minHeight: '600px' }}>
+        {/* Image de fond */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1920&auto=format&fit=crop" 
+            alt="Clopofeco Background" 
+            className="w-full h-full object-cover"
+          />
+          {/* Overlay sombre pour garder le texte lisible */}
+          <div className="absolute inset-0 bg-slate-900/75" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-20 md:py-28 lg:py-36">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full py-20">
           <div className="max-w-2xl">
-            <span className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-medium
-                             rounded-full mb-6 tracking-wide">
-              {settings?.business_name || 'Mon Catalogue'}
+            <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-semibold
+                             rounded-full mb-6 tracking-wider uppercase shadow-xl">
+              {settings?.business_name || 'Clopofeco'}
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight text-white drop-shadow-lg">
               Des produits de<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-white">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white">
                 qualité pour vous
               </span>
             </h1>
-            <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-lg">
+            <p className="text-lg text-slate-200 mb-10 leading-relaxed max-w-lg drop-shadow">
               Découvrez notre sélection et commandez facilement via WhatsApp ou email. Livraison rapide.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-4">
               <Link
                 to="/products"
-                className="inline-flex items-center gap-2 bg-white text-slate-900 font-semibold
-                           px-6 py-3 rounded-xl hover:bg-slate-100 transition"
+                className="inline-flex items-center gap-2 bg-white text-slate-900 font-bold
+                           px-7 py-3.5 rounded-xl hover:bg-slate-100 hover:scale-105 transition-all shadow-lg"
               >
                 Voir les produits
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-5 h-5" />
               </Link>
               {settings?.whatsapp_number && (
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500
-                             text-white font-semibold px-6 py-3 rounded-xl transition"
+                  className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400
+                             text-white font-bold px-7 py-3.5 rounded-xl hover:scale-105 transition-all shadow-lg"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <MessageCircle className="w-5 h-5" />
                   WhatsApp
                 </a>
               )}

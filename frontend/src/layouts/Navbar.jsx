@@ -52,7 +52,7 @@ function Navbar() {
               <ShoppingBag className="w-4 h-4 text-white" />
             </div>
             <span className="font-bold text-slate-900 text-base tracking-tight">
-              {settings?.business_name || 'Mon Catalogue'}
+              {settings?.business_name || 'Clopofeco'}
             </span>
           </Link>
 
