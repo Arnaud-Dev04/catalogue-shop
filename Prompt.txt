@@ -1,0 +1,1218 @@
+Tu es un développeur Full-Stack senior spécialisé en React, Node.js, Express, MySQL/TiDB Cloud, UX/UI moderne et applications web responsive.
+
+Je veux développer une application web moderne de catalogue de produits pour une entreprise.
+
+OBJECTIF DU PROJET
+------------------
+Créer une plateforme permettant à une entreprise de présenter ses produits avec leurs photos, descriptions, catégories, prix et disponibilité.
+
+Les visiteurs peuvent :
+- consulter les produits ;
+- rechercher des produits ;
+- filtrer par catégorie ;
+- consulter les détails d'un produit ;
+- ajouter des produits au panier ;
+- modifier les quantités ;
+- voir le total ;
+- envoyer leur commande via WhatsApp ;
+- envoyer leur commande via Email.
+
+L'entreprise possède également un espace d'administration sécurisé permettant de gérer entièrement le catalogue.
+
+IMPORTANT :
+Ce projet ne comporte PAS de paiement en ligne dans cette version.
+La commande finale est envoyée au vendeur via WhatsApp ou Email.
+
+
+==================================================
+1. TECHNOLOGIES OBLIGATOIRES
+==================================================
+
+FRONTEND
+--------
+- React
+- Vite
+- JavaScript ou TypeScript
+- Tailwind CSS
+- React Router
+- Axios
+- Lucide React pour les icônes
+
+BACKEND
+-------
+- Node.js
+- Express.js
+- REST API
+- JWT pour l'authentification
+- bcrypt pour le hash des mots de passe
+- CORS
+- dotenv
+
+DATABASE
+--------
+- MySQL compatible avec TiDB Cloud
+- Utiliser une architecture propre avec des relations SQL
+
+DEPLOIEMENT
+-----------
+Frontend + API : Vercel
+Database : TiDB Cloud
+
+IMPORTANT :
+Le frontend React ne doit JAMAIS accéder directement à la base de données.
+
+Architecture obligatoire :
+
+React
+  ↓
+REST API
+  ↓
+Node.js / Express
+  ↓
+TiDB Cloud / MySQL
+
+
+==================================================
+2. ARCHITECTURE DU PROJET
+==================================================
+
+Créer une structure professionnelle :
+
+project/
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── layouts/
+│   │   ├── hooks/
+│   │   ├── services/
+│   │   ├── context/
+│   │   ├── utils/
+│   │   └── assets/
+│   │
+│   └── ...
+│
+├── backend/
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── routes/
+│   │   ├── middleware/
+│   │   ├── models/
+│   │   ├── services/
+│   │   ├── config/
+│   │   └── server.js
+│   │
+│   └── ...
+│
+└── README.md
+
+
+==================================================
+3. DESIGN GLOBAL
+==================================================
+
+Créer une interface moderne, professionnelle et élégante.
+
+Le design doit être :
+- responsive ;
+- mobile-first ;
+- rapide ;
+- propre ;
+- minimaliste ;
+- professionnel ;
+- adapté à une entreprise commerciale ;
+- agréable sur smartphone, tablette et ordinateur.
+
+Utiliser Tailwind CSS.
+
+Éviter :
+- interfaces surchargées ;
+- couleurs trop nombreuses ;
+- animations excessives ;
+- gros textes inutiles ;
+- composants visuellement incohérents.
+
+Utiliser :
+- cartes produits modernes ;
+- coins légèrement arrondis ;
+- ombres discrètes ;
+- espaces généreux ;
+- bonne hiérarchie typographique ;
+- animations légères ;
+- états hover ;
+- skeleton loaders ;
+- notifications toast ;
+- modales modernes.
+
+Prévoir un thème clair professionnel.
+
+Prévoir également une structure permettant d'ajouter facilement un dark mode plus tard.
+
+
+==================================================
+4. PARTIE PUBLIQUE
+==================================================
+
+Créer les pages suivantes :
+
+/
+ /products
+ /products/:id
+ /categories/:slug
+ /cart
+ /contact
+
+
+==================================================
+5. PAGE ACCUEIL
+==================================================
+
+Créer une page d'accueil professionnelle contenant :
+
+HEADER
+------
+- Logo
+- Accueil
+- Produits
+- Catégories
+- Contact
+- Icône recherche
+- Icône panier
+- compteur du panier
+- bouton/menu mobile
+
+HERO
+----
+Créer une grande section Hero présentant l'entreprise.
+
+Contenu :
+- titre principal ;
+- sous-titre ;
+- bouton "Voir les produits".
+
+La section doit être visuellement moderne.
+
+CATÉGORIES
+----------
+Afficher les principales catégories sous forme de cartes.
+
+PRODUITS POPULAIRES
+-------------------
+Afficher les produits populaires ou les produits disponibles.
+
+Chaque carte produit doit afficher :
+- image ;
+- nom ;
+- catégorie ;
+- prix ;
+- disponibilité ;
+- bouton "Voir le produit" ;
+- bouton "Ajouter au panier".
+
+SECTION PROMOTION
+-----------------
+Prévoir une section permettant de mettre en avant certains produits.
+
+SECTION CONTACT
+---------------
+Afficher :
+- téléphone ;
+- WhatsApp ;
+- email ;
+- adresse si disponible.
+
+FOOTER
+------
+Afficher :
+- logo ;
+- description courte ;
+- navigation ;
+- contact ;
+- WhatsApp ;
+- copyright.
+
+
+==================================================
+6. PAGE PRODUITS
+==================================================
+
+Créer une page catalogue complète.
+
+Fonctionnalités :
+
+- affichage en grille ;
+- recherche ;
+- filtre par catégorie ;
+- filtre disponibilité ;
+- tri par prix croissant ;
+- tri par prix décroissant ;
+- tri par nouveauté.
+
+Exemple :
+
+Recherche :
+[ Rechercher un produit... ]
+
+Catégorie :
+[ Toutes ] [ Chaussures ] [ Vêtements ] [ Accessoires ]
+
+Tri :
+[ Plus récents ]
+[ Prix croissant ]
+[ Prix décroissant ]
+
+Afficher le nombre de résultats.
+
+Ajouter pagination ou chargement progressif si nécessaire.
+
+
+==================================================
+7. CARTE PRODUIT
+==================================================
+
+Créer un composant ProductCard réutilisable.
+
+Il doit afficher :
+
+- image ;
+- nom ;
+- prix ;
+- catégorie ;
+- statut du stock ;
+- badge "Nouveau" si nécessaire ;
+- badge "Promotion" si nécessaire ;
+- bouton détail ;
+- bouton panier.
+
+Si stock = 0 :
+
+Afficher :
+"Rupture de stock"
+
+Désactiver le bouton d'ajout au panier.
+
+
+==================================================
+8. PAGE DETAIL PRODUIT
+==================================================
+
+Route :
+
+/products/:id
+
+Afficher :
+
+- grande image ;
+- galerie d'images si plusieurs images ;
+- nom ;
+- catégorie ;
+- description ;
+- prix ;
+- stock disponible ;
+- quantité ;
+- bouton "Ajouter au panier" ;
+- bouton "Commander sur WhatsApp".
+
+Prévoir une interface propre sur mobile.
+
+
+==================================================
+9. PANIER
+==================================================
+
+Route :
+
+/cart
+
+Le panier doit être entièrement fonctionnel.
+
+Afficher :
+
+- produit ;
+- image ;
+- prix unitaire ;
+- quantité ;
+- sous-total ;
+- bouton + ;
+- bouton - ;
+- supprimer ;
+- total général.
+
+Exemple :
+
+Produit A
+85 000 BIF × 2
+170 000 BIF
+
+Produit B
+30 000 BIF × 1
+30 000 BIF
+
+TOTAL
+200 000 BIF
+
+Boutons :
+
+[ Commander sur WhatsApp ]
+
+[ Commander par Email ]
+
+Le panier doit être sauvegardé dans localStorage afin qu'il ne disparaisse pas lorsque l'utilisateur recharge la page.
+
+
+==================================================
+10. COMMANDE WHATSAPP
+==================================================
+
+Créer une fonction permettant de générer automatiquement un message WhatsApp.
+
+Exemple :
+
+Bonjour,
+
+Je souhaite passer une commande :
+
+1 × Chaussure Premium
+Prix unitaire : 85 000 BIF
+Sous-total : 85 000 BIF
+
+2 × T-shirt
+Prix unitaire : 30 000 BIF
+Sous-total : 60 000 BIF
+
+Total : 145 000 BIF
+
+Merci.
+
+Le numéro WhatsApp du vendeur doit être configurable dans les paramètres du site.
+
+Utiliser une URL WhatsApp correctement encodée.
+
+Ne jamais hardcoder le numéro directement dans plusieurs composants.
+
+
+==================================================
+11. COMMANDE PAR EMAIL
+==================================================
+
+Créer une fonction permettant d'ouvrir le client email de l'utilisateur.
+
+Sujet :
+
+Nouvelle commande
+
+Corps :
+
+Bonjour,
+
+Je souhaite passer la commande suivante :
+
+...
+
+Total : ...
+
+Nom :
+Téléphone :
+Email :
+
+Merci.
+
+
+L'adresse email du vendeur doit être configurable dans les paramètres du site.
+
+
+==================================================
+12. BASE DE DONNÉES
+==================================================
+
+Créer les tables suivantes :
+
+users
+categories
+products
+product_images
+orders
+order_items
+settings
+
+
+TABLE users
+-----------
+
+id
+name
+email
+password_hash
+role
+created_at
+updated_at
+
+
+role peut être :
+
+admin
+
+
+TABLE categories
+----------------
+
+id
+name
+slug
+description
+image_url
+is_active
+created_at
+updated_at
+
+
+TABLE products
+--------------
+
+id
+category_id
+name
+slug
+description
+price
+stock
+is_active
+is_featured
+created_at
+updated_at
+
+
+TABLE product_images
+--------------------
+
+id
+product_id
+image_url
+is_primary
+created_at
+
+
+TABLE orders
+------------
+
+id
+customer_name
+customer_phone
+customer_email
+total
+status
+created_at
+updated_at
+
+
+TABLE order_items
+-----------------
+
+id
+order_id
+product_id
+quantity
+unit_price
+subtotal
+
+
+TABLE settings
+--------------
+
+id
+business_name
+logo_url
+whatsapp_number
+email
+phone
+address
+currency
+updated_at
+
+
+La devise par défaut doit être :
+
+BIF
+
+
+==================================================
+13. API REST
+==================================================
+
+Créer une API REST propre.
+
+AUTH
+----
+
+POST /api/auth/login
+GET  /api/auth/me
+
+
+PRODUCTS
+--------
+
+GET    /api/products
+GET    /api/products/:id
+POST   /api/products
+PUT    /api/products/:id
+DELETE /api/products/:id
+
+
+CATEGORIES
+----------
+
+GET    /api/categories
+GET    /api/categories/:id
+POST   /api/categories
+PUT    /api/categories/:id
+DELETE /api/categories/:id
+
+
+ORDERS
+------
+
+POST /api/orders
+GET  /api/orders
+GET  /api/orders/:id
+PUT  /api/orders/:id
+
+
+SETTINGS
+--------
+
+GET /api/settings
+PUT /api/settings
+
+
+Les routes POST, PUT et DELETE d'administration doivent être protégées.
+
+
+==================================================
+14. AUTHENTIFICATION ADMIN
+==================================================
+
+Créer une page :
+
+/admin/login
+
+Interface :
+
+Email
+Mot de passe
+
+[ Se connecter ]
+
+Après connexion :
+
+/admin/dashboard
+
+
+Utiliser JWT.
+
+Le mot de passe doit être hashé avec bcrypt.
+
+NE JAMAIS stocker les mots de passe en clair.
+
+Créer un middleware :
+
+authenticateToken
+
+et un middleware :
+
+requireAdmin
+
+
+==================================================
+15. ADMIN DASHBOARD
+==================================================
+
+Créer :
+
+/admin/dashboard
+
+Afficher des statistiques :
+
+- nombre total de produits ;
+- produits actifs ;
+- produits en rupture ;
+- nombre de catégories ;
+- valeur approximative du stock ;
+- dernières modifications.
+
+Créer des cartes statistiques modernes.
+
+
+==================================================
+16. ADMIN — PRODUITS
+==================================================
+
+Route :
+
+/admin/products
+
+Afficher un tableau professionnel.
+
+Colonnes :
+
+Image
+Nom
+Catégorie
+Prix
+Stock
+Statut
+Actions
+
+Actions :
+
+Modifier
+Supprimer
+Activer/Désactiver
+
+
+Bouton :
+
++ Ajouter un produit
+
+
+==================================================
+17. AJOUT / MODIFICATION PRODUIT
+==================================================
+
+Créer un formulaire professionnel.
+
+Champs :
+
+Nom
+Description
+Catégorie
+Prix
+Stock
+Images
+Produit vedette
+Statut actif
+
+Validation obligatoire :
+
+- nom requis ;
+- prix > 0 ;
+- stock >= 0 ;
+- catégorie obligatoire.
+
+Afficher les erreurs de validation clairement.
+
+
+==================================================
+18. UPLOAD IMAGES
+==================================================
+
+Créer une fonctionnalité d'upload d'image moderne.
+
+Permettre :
+
+- sélectionner une image ;
+- prévisualiser l'image ;
+- supprimer l'image avant sauvegarde ;
+- définir l'image principale.
+
+IMPORTANT :
+
+Ne pas stocker les fichiers image directement dans TiDB.
+
+Stocker les images dans un service de stockage externe compatible avec une application déployée sur Vercel.
+
+La base de données doit uniquement conserver les URLs des images.
+
+
+==================================================
+19. ADMIN — CATÉGORIES
+==================================================
+
+Route :
+
+/admin/categories
+
+Permettre :
+
+- créer une catégorie ;
+- modifier ;
+- supprimer ;
+- activer/désactiver.
+
+Afficher :
+
+Nom
+Slug
+Nombre de produits
+Statut
+Actions
+
+
+==================================================
+20. ADMIN — GESTION DES PRIX
+==================================================
+
+L'administrateur doit pouvoir modifier facilement le prix d'un produit.
+
+Afficher :
+
+Prix actuel
+Nouveau prix
+
+Prévoir une confirmation avant modification importante.
+
+Toujours afficher les prix en BIF côté utilisateur.
+
+
+==================================================
+21. ADMIN — GESTION DU STOCK
+==================================================
+
+Permettre de modifier :
+
+Stock disponible
+
+Afficher des indicateurs :
+
+Stock normal
+Stock faible
+Rupture
+
+Prévoir des seuils :
+
+stock > 10 :
+Disponible
+
+stock entre 1 et 10 :
+Stock faible
+
+stock = 0 :
+Rupture de stock
+
+
+Le seuil de stock faible doit idéalement être configurable.
+
+
+==================================================
+22. ROUTES ADMIN PROTÉGÉES
+==================================================
+
+Les pages :
+
+/admin/dashboard
+/admin/products
+/admin/categories
+/admin/settings
+
+ne doivent être accessibles qu'à un utilisateur authentifié.
+
+Si un utilisateur non connecté tente d'y accéder :
+
+redirection vers :
+
+/admin/login
+
+
+==================================================
+23. GESTION DES ERREURS
+==================================================
+
+Prévoir :
+
+- page 404 ;
+- erreurs API ;
+- erreurs réseau ;
+- produit inexistant ;
+- catégorie inexistante ;
+- erreur de connexion ;
+- formulaire invalide ;
+- upload échoué.
+
+Afficher des messages utilisateur compréhensibles.
+
+
+==================================================
+24. LOADING STATES
+==================================================
+
+Créer :
+
+- skeleton produit ;
+- skeleton dashboard ;
+- spinner pour les actions ;
+- état "chargement..." ;
+- état vide.
+
+Exemple :
+
+Aucun produit trouvé.
+
+Aucune catégorie disponible.
+
+
+==================================================
+25. RESPONSIVE DESIGN
+==================================================
+
+Le site doit être parfaitement utilisable :
+
+Mobile :
+320px+
+375px+
+414px+
+
+Tablette :
+768px+
+
+Desktop :
+1024px+
+1280px+
+1440px+
+
+
+Sur mobile :
+
+- menu hamburger ;
+- grille 1 ou 2 colonnes ;
+- panier accessible facilement ;
+- boutons suffisamment grands ;
+- tableaux admin transformés en cartes ou scroll horizontal ;
+- formulaires adaptés au tactile.
+
+
+==================================================
+26. SEO
+==================================================
+
+Prévoir :
+
+- titres de pages ;
+- meta descriptions ;
+- URLs propres ;
+- slugs produits ;
+- slugs catégories ;
+- balises alt des images.
+
+Exemple :
+
+/products/chaussure-premium
+
+et non :
+
+/products?id=123
+
+
+==================================================
+27. PERFORMANCE
+==================================================
+
+Optimiser :
+
+- images ;
+- lazy loading ;
+- requêtes API ;
+- composants React ;
+- bundle JavaScript.
+
+Éviter les requêtes inutiles.
+
+Ne pas charger tous les produits si le catalogue devient important.
+
+
+==================================================
+28. SÉCURITÉ
+==================================================
+
+Respecter les bonnes pratiques :
+
+- bcrypt ;
+- JWT ;
+- validation backend ;
+- validation frontend ;
+- requêtes SQL paramétrées ;
+- protection des routes admin ;
+- variables d'environnement ;
+- CORS ;
+- ne jamais exposer les identifiants TiDB ;
+- ne jamais mettre les secrets dans React ;
+- ne jamais stocker les mots de passe en clair.
+
+Créer un fichier :
+
+.env.example
+
+avec :
+
+DATABASE_URL=
+JWT_SECRET=
+WHATSAPP_NUMBER=
+BUSINESS_EMAIL=
+
+
+==================================================
+29. ENVIRONNEMENT VERCEL
+==================================================
+
+Le projet doit être conçu pour être déployable sur Vercel.
+
+Prévoir les variables d'environnement.
+
+Frontend :
+
+VITE_API_URL=
+
+Backend :
+
+DATABASE_URL=
+JWT_SECRET=
+CORS_ORIGIN=
+
+
+Ne jamais utiliser localhost en production.
+
+
+==================================================
+30. DONNÉES DE DÉMONSTRATION
+==================================================
+
+Créer quelques données fictives :
+
+5 catégories
+
+10 produits
+
+avec :
+
+- noms ;
+- descriptions ;
+- prix en BIF ;
+- stock ;
+- catégories ;
+- images placeholder.
+
+Créer également un compte administrateur de développement.
+
+IMPORTANT :
+Le mot de passe réel ne doit jamais être écrit directement dans le code source.
+
+
+==================================================
+31. COMPOSANTS RÉUTILISABLES
+==================================================
+
+Créer notamment :
+
+Navbar
+Footer
+ProductCard
+ProductGrid
+SearchBar
+CategoryCard
+CategoryFilter
+CartItem
+CartSummary
+WhatsAppButton
+EmailOrderButton
+Modal
+Toast
+LoadingSpinner
+ProductForm
+CategoryForm
+AdminSidebar
+AdminHeader
+StatsCard
+ProtectedRoute
+
+
+==================================================
+32. CONTEXT / STATE MANAGEMENT
+==================================================
+
+Créer un CartContext pour gérer :
+
+- ajout au panier ;
+- suppression ;
+- augmentation quantité ;
+- diminution quantité ;
+- calcul total ;
+- nombre d'articles ;
+- sauvegarde localStorage ;
+- restauration du panier.
+
+Créer également un contexte d'authentification si nécessaire.
+
+
+==================================================
+33. UX
+==================================================
+
+L'utilisateur doit comprendre immédiatement :
+
+1. Ce que vend l'entreprise.
+2. Combien coûte chaque produit.
+3. Si le produit est disponible.
+4. Comment commander.
+5. Comment contacter le vendeur.
+
+Le bouton WhatsApp doit être facilement identifiable.
+
+Le parcours utilisateur doit être :
+
+Accueil
+→ Produits
+→ Produit
+→ Panier
+→ WhatsApp / Email
+
+
+==================================================
+34. CODE QUALITY
+==================================================
+
+Je veux un code :
+
+- propre ;
+- modulaire ;
+- maintenable ;
+- réutilisable ;
+- commenté uniquement lorsque nécessaire ;
+- sans duplication inutile ;
+- avec des noms de variables explicites.
+
+Ne mets PAS toute l'application dans un seul fichier.
+
+Ne crée PAS de fausses API.
+
+Toutes les fonctionnalités visibles dans l'interface doivent être réellement connectées au backend.
+
+
+==================================================
+35. IMPORTANT : ORDRE DE DÉVELOPPEMENT
+==================================================
+
+Développe le projet progressivement.
+
+ÉTAPE 1
+-------
+Créer l'architecture du projet.
+
+ÉTAPE 2
+-------
+Créer la base de données et les modèles.
+
+ÉTAPE 3
+-------
+Créer l'API Node.js / Express.
+
+ÉTAPE 4
+-------
+Créer l'authentification admin.
+
+ÉTAPE 5
+-------
+Créer le frontend public.
+
+ÉTAPE 6
+-------
+Créer le panier.
+
+ÉTAPE 7
+-------
+Créer WhatsApp et Email.
+
+ÉTAPE 8
+-------
+Créer le dashboard admin.
+
+ÉTAPE 9
+-------
+Créer CRUD produits.
+
+ÉTAPE 10
+--------
+Créer CRUD catégories.
+
+ÉTAPE 11
+--------
+Créer gestion prix et stock.
+
+ÉTAPE 12
+--------
+Créer upload images.
+
+ÉTAPE 13
+--------
+Tester toutes les fonctionnalités.
+
+ÉTAPE 14
+--------
+Préparer le déploiement Vercel + TiDB Cloud.
+
+
+==================================================
+36. RÈGLE IMPORTANTE POUR LE CODAGE
+==================================================
+
+Ne génère pas tout le projet en une seule réponse si cela risque de produire du code incomplet ou cassé.
+
+Travaille étape par étape.
+
+À chaque étape :
+
+1. explique brièvement ce qui sera créé ;
+2. crée les fichiers nécessaires ;
+3. donne le code complet des fichiers modifiés ;
+4. indique où placer chaque fichier ;
+5. indique les commandes npm à exécuter ;
+6. vérifie les dépendances ;
+7. vérifie les imports ;
+8. vérifie que l'étape fonctionne avant de continuer.
+
+Ne passe pas à l'étape suivante si l'étape actuelle contient des erreurs.
+
+Lorsque plusieurs fichiers sont nécessaires, indique clairement leur chemin.
+
+Exemple :
+
+frontend/src/components/ProductCard.jsx
+
+backend/src/controllers/productController.js
+
+
+==================================================
+37. OBJECTIF FINAL
+==================================================
+
+À la fin, je veux obtenir une vraie application web fonctionnelle permettant :
+
+VISITEUR :
+
+Accueil
+→ Produits
+→ Recherche
+→ Catégories
+→ Détail produit
+→ Panier
+→ WhatsApp / Email
+
+
+ADMIN :
+
+Login
+→ Dashboard
+→ Produits
+→ Ajouter produit
+→ Modifier produit
+→ Supprimer produit
+→ Prix
+→ Stock
+→ Catégories
+→ Upload images
+→ Paramètres
+
+
+L'application doit être prête à être connectée à TiDB Cloud et déployée sur Vercel.
+
+Commence maintenant par l'ÉTAPE 1 : architecture du projet et initialisation frontend/backend.
+
+Ne saute aucune étape.
