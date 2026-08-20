@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 5000;
 
 // ── Middlewares globaux ─────────────────────────────────────────
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
+  origin: true, // Accepte dynamiquement l'URL du frontend (localhost ou Vercel)
   credentials: true,
 }));
 
