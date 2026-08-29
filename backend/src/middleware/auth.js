@@ -18,10 +18,18 @@ export function authenticateToken(req, res, next) {
   }
 }
 
-// ── Vérifie que l'utilisateur est un administrateur ────────────
+// ── Vérifie que l'utilisateur a des droits (admin ou superadmin) ────────────
 export function requireAdmin(req, res, next) {
-  if (!req.user || req.user.role !== 'admin') {
+  if (!req.user || (req.user.role !== 'admin' && req.user.role !== 'superadmin')) {
     return res.status(403).json({ error: 'Accès réservé aux administrateurs.' });
+  }
+  next();
+}
+
+// ── Vérifie que l'utilisateur est STRICTEMENT superadmin ────────────
+export function requireSuperAdmin(req, res, next) {
+  if (!req.user || req.user.role !== 'superadmin') {
+    return res.status(403).json({ error: 'Accès réservé au Super Administrateur.' });
   }
   next();
 }

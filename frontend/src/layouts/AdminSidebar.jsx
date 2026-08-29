@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import {
-  LayoutDashboard, Package, Tag, Settings,
+  LayoutDashboard, Package, Tag, Settings, Users,
   LogOut, ShoppingBag, Menu, X, ChevronRight,
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext.jsx';
 
+// Les éléments de base
 const NAV_ITEMS = [
   { to: '/admin/dashboard',   label: 'Dashboard',   icon: LayoutDashboard },
   { to: '/admin/products',    label: 'Produits',     icon: Package         },
@@ -50,6 +51,12 @@ function AdminSidebar() {
             {label}
           </NavLink>
         ))}
+        {user?.role === 'superadmin' && (
+          <NavLink to="/admin/users" className={linkClass} onClick={() => setOpen(false)}>
+            <Users className="w-4 h-4 flex-shrink-0" />
+            Utilisateurs
+          </NavLink>
+        )}
       </nav>
 
       {/* Logout */}

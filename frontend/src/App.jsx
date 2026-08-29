@@ -28,6 +28,7 @@ import AdminProductForm    from './pages/admin/AdminProductForm.jsx';
 import AdminCategories     from './pages/admin/AdminCategories.jsx';
 import AdminCategoryForm   from './pages/admin/AdminCategoryForm.jsx';
 import AdminSettings       from './pages/admin/AdminSettings.jsx';
+import AdminUsers          from './pages/admin/AdminUsers.jsx';
 
 function App() {
   return (
@@ -65,6 +66,7 @@ function App() {
               <Route path="/admin/categories/:id"   element={<AdminCategoryForm />} />
               
               <Route path="/admin/settings"         element={<AdminSettings />} />
+              <Route path="/admin/users"            element={<AdminUsers />} />
             </Route>
 
             {/* Redirection /admin → /admin/dashboard */}

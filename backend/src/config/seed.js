@@ -6,10 +6,12 @@ async function seed() {
     console.log('🌱 Insertion des données de démonstration...');
 
     // 1. Compte Admin
-    const adminPassword = process.env.ADMIN_PASSWORD || 'Admin@2024';
-    const passwordHash = await bcrypt.hash(adminPassword, 12);
-    await db.execute({ sql: `INSERT OR IGNORE INTO users (name, email, password_hash, role) VALUES (?, ?, ?, 'admin')`, args: ['Administrateur', 'admin@catalogue.com', passwordHash] });
-    console.log('  ✔ Compte admin créé (email: admin@catalogue.com)');
+    const passwordHash = await bcrypt.hash(process.env.ADMIN_PASSWORD || 'Admin@2024', 12);
+    await db.execute({
+      sql: `INSERT OR IGNORE INTO users (name, email, password_hash, role) VALUES (?, ?, ?, 'superadmin')`,
+      args: ['Administrateur', 'admin@catalogue.com', passwordHash]
+    });
+    console.log('  ✔ Compte superadmin créé (email: admin@catalogue.com)');
 
     // 2. Paramètres boutique
     const existingSettings = await db.execute({ sql: 'SELECT id FROM settings LIMIT 1', args: [] });

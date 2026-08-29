@@ -9,6 +9,7 @@ import categoryRoutes from './routes/categories.js';
 import orderRoutes    from './routes/orders.js';
 import settingsRoutes from './routes/settings.js';
 import uploadRoutes   from './routes/upload.js';
+import userRoutes     from './routes/users.js';
 
 dotenv.config();
 
@@ -31,6 +32,7 @@ app.use('/api/categories', categoryRoutes);
 app.use('/api/orders',     orderRoutes);
 app.use('/api/settings',   settingsRoutes);
 app.use('/api/upload',     uploadRoutes);
+app.use('/api/users',      userRoutes);
 
 // Stats du dashboard (alias lisible)
 app.use('/api/admin',      settingsRoutes);
