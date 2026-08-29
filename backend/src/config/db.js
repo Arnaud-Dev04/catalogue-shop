@@ -1,28 +1,17 @@
-import mysql from 'mysql2/promise';
+import { createClient } from '@libsql/client';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-// Création d'un pool de connexions MySQL
-const pool = mysql.createPool({
-  uri: process.env.DATABASE_URL,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
-  enableKeepAlive: true,
-  keepAliveInitialDelay: 0,
-  // Nécessaire pour TiDB Cloud (connexion SSL)
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: true } : undefined,
+// Client libSQL (Turso) — remplace le pool mysql2
+const db = createClient({
+  url:       process.env.TURSO_DATABASE_URL,
+  authToken: process.env.TURSO_AUTH_TOKEN,
 });
 
 // Test de connexion au démarrage
-pool.getConnection()
-  .then(connection => {
-    console.log('✅ Connexion à la base de données réussie.');
-    connection.release();
-  })
-  .catch(err => {
-    console.error('❌ Erreur de connexion à la base de données :', err.message);
-  });
+db.execute('SELECT 1')
+  .then(() => console.log('✅ Connexion à Turso réussie.'))
+  .catch(err => console.error('❌ Erreur de connexion à Turso :', err.message));
 
-export default pool;
+export default db;

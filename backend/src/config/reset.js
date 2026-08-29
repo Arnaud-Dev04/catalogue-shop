@@ -1,34 +1,25 @@
-import pool from '../config/db.js';
+import db from '../config/db.js';
 
-// Script pour vider toutes les tables et relancer le seed proprement
 async function reset() {
-  const conn = await pool.getConnection();
   try {
     console.log('🔄 Remise à zéro des données...');
 
-    // Désactiver les contraintes de clés étrangères le temps de vider
-    await conn.execute('SET FOREIGN_KEY_CHECKS = 0');
-
-    await conn.execute('TRUNCATE TABLE order_items');
-    await conn.execute('TRUNCATE TABLE orders');
-    await conn.execute('TRUNCATE TABLE product_images');
-    await conn.execute('TRUNCATE TABLE products');
-    await conn.execute('TRUNCATE TABLE categories');
-    await conn.execute('TRUNCATE TABLE settings');
-    await conn.execute('TRUNCATE TABLE users');
-
-    // Réactiver les contraintes
-    await conn.execute('SET FOREIGN_KEY_CHECKS = 1');
+    await db.execute({ sql: 'PRAGMA foreign_keys = OFF', args: [] });
+    await db.execute({ sql: 'DELETE FROM order_items', args: [] });
+    await db.execute({ sql: 'DELETE FROM orders', args: [] });
+    await db.execute({ sql: 'DELETE FROM product_images', args: [] });
+    await db.execute({ sql: 'DELETE FROM products', args: [] });
+    await db.execute({ sql: 'DELETE FROM categories', args: [] });
+    await db.execute({ sql: 'DELETE FROM settings', args: [] });
+    await db.execute({ sql: 'DELETE FROM users', args: [] });
+    await db.execute({ sql: 'PRAGMA foreign_keys = ON', args: [] });
 
     console.log('✅ Toutes les tables ont été vidées. Lancez maintenant : npm run seed');
-
   } catch (err) {
     console.error('❌ Erreur lors du reset :', err.message);
     process.exit(1);
-  } finally {
-    conn.release();
-    process.exit(0);
   }
+  process.exit(0);
 }
 
 reset();
