@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, MessageCircle, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
+import { WhatsAppIcon } from '../../components/Icons.jsx';
 import useSettings from '../../hooks/useSettings.js';
 import LoadingSpinner from '../../components/LoadingSpinner.jsx';
 
@@ -34,54 +35,54 @@ function Contact() {
 
           {settings?.phone && (
             <a href={`tel:${settings.phone}`}
-              className="flex items-start gap-4 bg-white rounded-2xl p-6 border border-gray-100
-                         hover:shadow-md transition group">
-              <div className="w-11 h-11 bg-slate-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <Phone className="w-5 h-5 text-slate-600" />
+              className="flex items-start gap-4 bg-white rounded-3xl p-6 border border-gray-100
+                         hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+              <div className="w-14 h-14 bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-slate-900/20 group-hover:scale-110 transition-transform duration-300">
+                <Phone className="w-6 h-6 text-white" />
               </div>
-              <div>
-                <p className="text-sm font-semibold text-gray-900 mb-0.5">Téléphone</p>
-                <p className="text-gray-600 text-sm group-hover:text-slate-800 transition">{settings.phone}</p>
+              <div className="pt-1">
+                <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-1">Téléphone</p>
+                <p className="text-gray-900 font-medium group-hover:text-slate-700 transition">{settings.phone}</p>
               </div>
             </a>
           )}
 
           {settings?.whatsapp_number && (
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"
-              className="flex items-start gap-4 bg-white rounded-2xl p-6 border border-gray-100
-                         hover:shadow-md transition group">
-              <div className="w-11 h-11 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <MessageCircle className="w-5 h-5 text-green-600" />
+              className="flex items-start gap-4 bg-white rounded-3xl p-6 border border-gray-100
+                         hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+              <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-green-500/30 group-hover:scale-110 transition-transform duration-300">
+                <WhatsAppIcon className="w-7 h-7 text-white" />
               </div>
-              <div>
-                <p className="text-sm font-semibold text-gray-900 mb-0.5">WhatsApp</p>
-                <p className="text-green-600 text-sm font-medium">Envoyer un message</p>
+              <div className="pt-1">
+                <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-1">WhatsApp</p>
+                <p className="text-green-600 font-medium">Envoyer un message</p>
               </div>
             </a>
           )}
 
           {settings?.email && (
             <a href={`mailto:${settings.email}`}
-              className="flex items-start gap-4 bg-white rounded-2xl p-6 border border-gray-100
-                         hover:shadow-md transition group">
-              <div className="w-11 h-11 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                <Mail className="w-5 h-5 text-blue-600" />
+              className="flex items-start gap-4 bg-white rounded-3xl p-6 border border-gray-100
+                         hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+              <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform duration-300">
+                <Mail className="w-6 h-6 text-white" />
               </div>
-              <div>
-                <p className="text-sm font-semibold text-gray-900 mb-0.5">Email</p>
-                <p className="text-gray-600 text-sm break-all group-hover:text-slate-800 transition">{settings.email}</p>
+              <div className="pt-1">
+                <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-1">Email</p>
+                <p className="text-gray-900 font-medium break-all group-hover:text-blue-600 transition">{settings.email}</p>
               </div>
             </a>
           )}
 
           {settings?.address && (
-            <div className="flex items-start gap-4 bg-white rounded-2xl p-6 border border-gray-100">
-              <div className="w-11 h-11 bg-amber-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                <MapPin className="w-5 h-5 text-amber-600" />
+            <div className="flex items-start gap-4 bg-white rounded-3xl p-6 border border-gray-100 hover:shadow-xl transition-all duration-300 group">
+              <div className="w-14 h-14 bg-gradient-to-br from-amber-400 to-amber-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-amber-500/20 group-hover:scale-110 transition-transform duration-300">
+                <MapPin className="w-6 h-6 text-white" />
               </div>
-              <div>
-                <p className="text-sm font-semibold text-gray-900 mb-0.5">Adresse</p>
-                <p className="text-gray-600 text-sm">{settings.address}</p>
+              <div className="pt-1">
+                <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-1">Adresse</p>
+                <p className="text-gray-900 font-medium">{settings.address}</p>
               </div>
             </div>
           )}

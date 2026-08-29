@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingBag, Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
+import { ShoppingBag, Phone, Mail, MapPin } from 'lucide-react';
+import { WhatsAppIcon } from '../components/Icons.jsx';
 import useSettings from '../hooks/useSettings.js';
 
 function Footer() {
@@ -39,7 +40,7 @@ function Footer() {
                 className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-green-600
                            hover:bg-green-500 text-white text-sm font-medium rounded-xl transition"
               >
-                <MessageCircle className="w-4 h-4" />
+                <WhatsAppIcon className="w-5 h-5" />
                 Commander sur WhatsApp
               </a>
             )}
@@ -86,7 +87,7 @@ function Footer() {
               )}
               {settings?.whatsapp_number && (
                 <li className="flex items-start gap-2 text-slate-400">
-                  <MessageCircle className="w-4 h-4 mt-0.5 flex-shrink-0 text-green-500" />
+                  <WhatsAppIcon className="w-4 h-4 mt-0.5 flex-shrink-0 text-green-500" />
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"
                     className="hover:text-white transition-colors">
                     WhatsApp
