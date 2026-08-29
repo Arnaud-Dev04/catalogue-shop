@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ShoppingCart, MessageCircle, Phone, Mail, MapPin, ChevronRight } from 'lucide-react';
+import { ArrowRight, ShoppingCart, Phone, Mail, MapPin, ChevronRight } from 'lucide-react';
+import { WhatsAppIcon } from '../../components/Icons.jsx';
 import ProductCard from '../../components/ProductCard.jsx';
 import { ProductGridSkeleton } from '../../components/ProductCardSkeleton.jsx';
 import { useCart } from '../../context/CartContext.jsx';
@@ -89,7 +90,7 @@ function Home() {
                   className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400
                              text-white font-bold px-7 py-3.5 rounded-xl hover:scale-105 transition-all shadow-lg"
                 >
-                  <MessageCircle className="w-5 h-5" />
+                  <WhatsAppIcon className="w-5 h-5" />
                   WhatsApp
                 </a>
               )}
@@ -216,7 +217,7 @@ function Home() {
                   className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500
                              text-white font-semibold px-5 py-3 rounded-xl transition whitespace-nowrap"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <WhatsAppIcon className="w-5 h-5" />
                   WhatsApp
                 </a>
               )}
@@ -244,47 +245,47 @@ function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {settings?.phone && (
               <a href={`tel:${settings.phone}`}
-                className="flex flex-col items-center gap-2 bg-white rounded-2xl p-6
-                           border border-gray-100 hover:shadow-md transition text-center">
-                <div className="w-10 h-10 bg-slate-100 rounded-xl flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-slate-600" />
+                className="flex flex-col items-center gap-2 bg-white rounded-3xl p-6
+                           border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center group">
+                <div className="w-14 h-14 bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl flex items-center justify-center shadow-lg shadow-slate-900/20 group-hover:scale-110 transition-transform duration-300">
+                  <Phone className="w-6 h-6 text-white" />
                 </div>
-                <p className="text-xs text-gray-500 font-medium">Téléphone</p>
-                <p className="text-sm font-semibold text-gray-900">{settings.phone}</p>
+                <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider mt-2">Téléphone</p>
+                <p className="text-sm font-semibold text-gray-900 group-hover:text-slate-700 transition">{settings.phone}</p>
               </a>
             )}
 
             {settings?.whatsapp_number && (
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"
-                className="flex flex-col items-center gap-2 bg-white rounded-2xl p-6
-                           border border-gray-100 hover:shadow-md transition text-center">
-                <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center">
-                  <MessageCircle className="w-5 h-5 text-green-600" />
+                className="flex flex-col items-center gap-2 bg-white rounded-3xl p-6
+                           border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center group">
+                <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center shadow-lg shadow-green-500/30 group-hover:scale-110 transition-transform duration-300">
+                  <WhatsAppIcon className="w-7 h-7 text-white" />
                 </div>
-                <p className="text-xs text-gray-500 font-medium">WhatsApp</p>
-                <p className="text-sm font-semibold text-gray-900">+{settings.whatsapp_number}</p>
+                <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider mt-2">WhatsApp</p>
+                <p className="text-sm font-semibold text-green-600">+{settings.whatsapp_number}</p>
               </a>
             )}
 
             {settings?.email && (
               <a href={`mailto:${settings.email}`}
-                className="flex flex-col items-center gap-2 bg-white rounded-2xl p-6
-                           border border-gray-100 hover:shadow-md transition text-center">
-                <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-blue-600" />
+                className="flex flex-col items-center gap-2 bg-white rounded-3xl p-6
+                           border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center group">
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform duration-300">
+                  <Mail className="w-6 h-6 text-white" />
                 </div>
-                <p className="text-xs text-gray-500 font-medium">Email</p>
-                <p className="text-sm font-semibold text-gray-900 break-all">{settings.email}</p>
+                <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider mt-2">Email</p>
+                <p className="text-sm font-semibold text-gray-900 break-all group-hover:text-blue-600 transition">{settings.email}</p>
               </a>
             )}
 
             {settings?.address && (
-              <div className="flex flex-col items-center gap-2 bg-white rounded-2xl p-6
-                              border border-gray-100 text-center">
-                <div className="w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-amber-600" />
+              <div className="flex flex-col items-center gap-2 bg-white rounded-3xl p-6
+                              border border-gray-100 hover:shadow-xl transition-all duration-300 text-center group">
+                <div className="w-14 h-14 bg-gradient-to-br from-amber-400 to-amber-500 rounded-2xl flex items-center justify-center shadow-lg shadow-amber-500/20 group-hover:scale-110 transition-transform duration-300">
+                  <MapPin className="w-6 h-6 text-white" />
                 </div>
-                <p className="text-xs text-gray-500 font-medium">Adresse</p>
+                <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider mt-2">Adresse</p>
                 <p className="text-sm font-semibold text-gray-900">{settings.address}</p>
               </div>
             )}
