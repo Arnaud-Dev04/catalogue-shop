@@ -33,8 +33,8 @@ function AdminSidebar() {
   const SidebarContent = () => (
     <div className="flex flex-col h-full">
       {/* Logo */}
-      <div className="flex items-center gap-3 px-5 py-5 border-b border-white/10">
-        <img src="/logo.jpg" alt="Logo Clopofeco" className="w-8 h-8 rounded-lg object-cover flex-shrink-0" />
+      <div className="flex items-center gap-4 px-5 py-6 border-b border-white/10">
+        <img src="/logo.jpg" alt="Logo Clopofeco" className="w-12 h-12 rounded-xl object-cover flex-shrink-0" />
         <div className="min-w-0">
           <p className="text-white font-bold text-sm truncate">Administration</p>
           <p className="text-slate-400 text-xs truncate">{user?.email}</p>
@@ -81,9 +81,9 @@ function AdminSidebar() {
       {/* Header mobile avec menu hamburger */}
       <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-slate-900 flex items-center
                       justify-between px-4 py-3 border-b border-white/10">
-        <div className="flex items-center gap-2">
-          <img src="/logo.jpg" alt="Logo" className="w-6 h-6 rounded-md object-cover" />
-          <span className="text-white font-bold text-sm">Administration</span>
+        <div className="flex items-center gap-3">
+          <img src="/logo.jpg" alt="Logo" className="w-10 h-10 rounded-lg object-cover" />
+          <span className="text-white font-bold text-base">Administration</span>
         </div>
         <button onClick={() => setOpen(p => !p)}
           className="p-1.5 text-slate-400 hover:text-white transition">

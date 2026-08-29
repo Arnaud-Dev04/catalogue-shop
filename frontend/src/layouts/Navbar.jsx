@@ -47,9 +47,9 @@ function Navbar() {
         <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 flex-shrink-0">
-            <img src="/logo.jpg" alt="Logo Clopofeco" className="w-8 h-8 rounded-lg object-cover shadow-sm" />
-            <span className="font-bold text-slate-900 text-base tracking-tight">
+          <Link to="/" className="flex items-center gap-3 flex-shrink-0">
+            <img src="/logo.jpg" alt="Logo Clopofeco" className="w-12 h-12 rounded-xl object-cover shadow-sm" />
+            <span className="font-bold text-slate-900 text-lg tracking-tight">
               {settings?.business_name || 'Clopofeco'}
             </span>
           </Link>
