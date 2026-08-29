@@ -20,9 +20,7 @@ function Footer() {
           {/* Colonne 1 : Marque */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-3">
-              <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
-                <ShoppingBag className="w-4 h-4 text-white" />
-              </div>
+              <img src="/logo.jpg" alt="Logo Clopofeco" className="w-8 h-8 rounded-lg object-cover" />
               <span className="font-bold text-white text-base">
                 {settings?.business_name || 'Clopofeco'}
               </span>

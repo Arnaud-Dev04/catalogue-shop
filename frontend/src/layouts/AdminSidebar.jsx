@@ -34,9 +34,7 @@ function AdminSidebar() {
     <div className="flex flex-col h-full">
       {/* Logo */}
       <div className="flex items-center gap-3 px-5 py-5 border-b border-white/10">
-        <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
-          <ShoppingBag className="w-4 h-4 text-white" />
-        </div>
+        <img src="/logo.jpg" alt="Logo Clopofeco" className="w-8 h-8 rounded-lg object-cover flex-shrink-0" />
         <div className="min-w-0">
           <p className="text-white font-bold text-sm truncate">Administration</p>
           <p className="text-slate-400 text-xs truncate">{user?.email}</p>
@@ -84,7 +82,7 @@ function AdminSidebar() {
       <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-slate-900 flex items-center
                       justify-between px-4 py-3 border-b border-white/10">
         <div className="flex items-center gap-2">
-          <ShoppingBag className="w-5 h-5 text-white" />
+          <img src="/logo.jpg" alt="Logo" className="w-6 h-6 rounded-md object-cover" />
           <span className="text-white font-bold text-sm">Administration</span>
         </div>
         <button onClick={() => setOpen(p => !p)}

@@ -48,9 +48,7 @@ function Navbar() {
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 flex-shrink-0">
-            <div className="w-8 h-8 bg-slate-800 rounded-lg flex items-center justify-center">
-              <ShoppingBag className="w-4 h-4 text-white" />
-            </div>
+            <img src="/logo.jpg" alt="Logo Clopofeco" className="w-8 h-8 rounded-lg object-cover shadow-sm" />
             <span className="font-bold text-slate-900 text-base tracking-tight">
               {settings?.business_name || 'Clopofeco'}
             </span>

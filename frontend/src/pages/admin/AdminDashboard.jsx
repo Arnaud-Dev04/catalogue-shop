@@ -42,7 +42,7 @@ function AdminDashboard() {
       {/* En-tête */}
       <div>
         <h1 className="text-2xl font-bold text-gray-900">
-          Bonjour, {user?.name || 'Administrateur'} 👋
+          Bonjour, {user?.name || 'Administrateur'} 
         </h1>
         <p className="text-gray-500 text-sm mt-1">
           Voici un aperçu de votre catalogue.
