@@ -1,9 +1,10 @@
 import axios from 'axios';
 
 // Instance Axios configurée pour l'API backend
+// En production, Vercel proxifie /api/* vers le backend via les rewrites
 const API_URL = import.meta.env.DEV
   ? 'http://localhost:5000/api'
-  : 'https://api-boutique-backend.vercel.app/api';
+  : '/api';
 
 const api = axios.create({
   baseURL: API_URL,
