@@ -18,6 +18,7 @@ import Products            from './pages/public/Products.jsx';
 import ProductDetail       from './pages/public/ProductDetail.jsx';
 import Cart                from './pages/public/Cart.jsx';
 import Contact             from './pages/public/Contact.jsx';
+import About               from './pages/public/About.jsx';
 import NotFound            from './pages/public/NotFound.jsx';
 
 // Pages admin
@@ -45,6 +46,7 @@ function App() {
               <Route path="/categories/:slug" element={<Products />} />
               <Route path="/cart"             element={<Cart />} />
               <Route path="/contact"          element={<Contact />} />
+              <Route path="/about"            element={<About />} />
               <Route path="*"                 element={<NotFound />} />
             </Route>
 

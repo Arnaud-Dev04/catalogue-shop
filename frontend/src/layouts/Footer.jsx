@@ -51,6 +51,7 @@ function Footer() {
               {[
                 { to: '/',         label: 'Accueil' },
                 { to: '/products', label: 'Produits' },
+                { to: '/about',    label: 'À propos' },
                 { to: '/cart',     label: 'Mon panier' },
                 { to: '/contact',  label: 'Contact' },
               ].map(l => (

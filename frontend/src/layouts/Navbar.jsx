@@ -34,6 +34,7 @@ function Navbar() {
   const navLinks = [
     { to: '/',          label: 'Accueil'   },
     { to: '/products',  label: 'Produits'  },
+    { to: '/about',     label: 'À propos'  },
     { to: '/contact',   label: 'Contact'   },
   ];
 
