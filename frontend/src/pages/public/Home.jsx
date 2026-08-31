@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ShoppingCart, Phone, Mail, MapPin, ChevronRight } from 'lucide-react';
+import { ArrowRight, ShoppingCart, Phone, Mail, MapPin, ChevronRight, Eye, Target } from 'lucide-react';
 import { WhatsAppIcon } from '../../components/Icons.jsx';
 import ProductCard from '../../components/ProductCard.jsx';
 import { ProductGridSkeleton } from '../../components/ProductCardSkeleton.jsx';
@@ -95,6 +95,48 @@ function Home() {
                 </a>
               )}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── QUI SOMMES-NOUS ? (À PROPOS) ─────────────────────── */}
+      <section className="py-16 bg-white relative z-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Qui sommes-nous ?</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
+              Chez <span className="font-bold text-slate-800">Clovis's Poultry Feeding Company</span>, nous croyons qu’une bonne alimentation est la base d’une volaille saine, productive et rentable.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {/* Vision */}
+            <div className="bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+              <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                <Eye className="w-7 h-7" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Notre Vision</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Devenir une entreprise de référence au Burundi dans la production d’aliments de qualité pour volailles, en contribuant à une aviculture moderne, productive, rentable et durable.
+              </p>
+            </div>
+
+            {/* Mission */}
+            <div className="bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+              <div className="w-14 h-14 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center mb-6">
+                <Target className="w-7 h-7" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Notre Mission</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Produire et commercialiser des aliments équilibrés, nutritifs et accessibles pour améliorer la santé des volailles et augmenter la rentabilité des éleveurs.
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center mt-10">
+            <Link to="/about" className="inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-700 transition">
+              Découvrir tous nos objectifs <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
